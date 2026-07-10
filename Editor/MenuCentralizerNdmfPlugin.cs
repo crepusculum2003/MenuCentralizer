@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Avatars.ScriptableObjects;
 
-[assembly: ExportsPlugin(typeof(MenuCentralizer.NdmfPlugin))]
+[assembly: ExportsPlugin(typeof(MenuCentralizer.NDMFPlugin))]
 
 namespace MenuCentralizer
 {
@@ -12,7 +12,7 @@ namespace MenuCentralizer
     /// NDMF プラグイン: ビルド時に AvatarDescriptor の ExpressionMenu を
     /// 空のメニューに差し替える。MA より前のフェーズで実行される。
     /// </summary>
-    public class NdmfPlugin : Plugin<NdmfPlugin>
+    public class NDMFPlugin : Plugin<NDMFPlugin>
     {
         public override string QualifiedName => "com.seal.menu-centralizer";
         public override string DisplayName  => "Menu Centralizer";

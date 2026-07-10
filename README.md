@@ -46,17 +46,17 @@ Modular Avatarが検出できない場合、実行時にインストールを促
 
 - faceemoの更新など、hierarchy上で同名のprefabが再度生成された場合、該当するinstall targetの参照先を手動で更新する、またはinstall targetを含むGameObjectを削除->syncしてください。
 
-- ギミック等のma対応prefabでインストールされるメニュー自体を編集したい場合は該当prefabをいじってください。対応予定です。
+- ギミック等のma対応prefabでインストールされるメニュー自体を編集したい場合は該当prefabをいじってください。現在、該当機能は開発中です。
 
-- Modular avatar menu installerを介さずにメニューが追加されるタイプのものは本プラグインで認識されません。
-- VRCFury由来のメニューについては未検証です。気が向いたら対応予定。
+- Modular avatar menu installerを介さずにメニューが追加されるタイプのものは本プラグインで認識されません。（スクリプトで追加する系）
+- VRCFury由来のメニュー系コンポーネントは未検証の部分が多く、正しく動作しない可能性があります。toggle、Reorder Menu Itemは動作確認しました。VRCFuryのSelect Itemで表示されないのは仕様です。パスの手入力で動作します。
 
 ---
 
 ## 以降は技術的な話です。
 ### ビルド時の挙動（NDMFプラグイン）
 
-`NdmfPlugin`（`com.seal.menu-centralizer`）は、MAのビルドフェーズより前（`BuildPhase.Transforming` かつ MA プラグインの前）で以下を行います。
+`NDMFPlugin`（`com.seal.menu-centralizer`）は、MAのビルドフェーズより前（`BuildPhase.Transforming` かつ MA プラグインの前）で以下を行います。
 
 - アバター内に `ExMenuInjector` コンポーネントが存在する場合のみ動作
 - `VRCAvatarDescriptor.expressionsMenu` を、メモリ上でのみ生成した空の `VRCExpressionsMenu` に差し替え（アセットとして保存はされない）
@@ -67,11 +67,11 @@ Modular Avatarが検出できない場合、実行時にインストールを促
 
 ### メニュー項目一覧
 
-| メニューパス | 機能 |
-|---|---|
-| `GameObject > Menu Centralizer > Extract Menu to MA_Menu` | ExpressionMenuをMA Menu Item階層へ差分抽出 |
-| `GameObject > Menu Centralizer > Sync Install Targets` | 既存Menu InstallerをInstall Targetとして同期 |
-| `GameObject > Menu Centralizer > EASY Submenu Creation` | サブメニュー用GameObjectをワンクリック作成 |
+| メニューパス                                              | 機能                                         |
+| --------------------------------------------------------- | -------------------------------------------- |
+| `GameObject > Menu Centralizer > Extract Menu to MA_Menu` | ExpressionMenuをMA Menu Item階層へ差分抽出   |
+| `GameObject > Menu Centralizer > Sync Install Targets`    | 既存Menu InstallerをInstall Targetとして同期 |
+| `GameObject > Menu Centralizer > EASY Submenu Creation`   | サブメニュー用GameObjectをワンクリック作成   |
 
 いずれも、Hierarchyで `VRCAvatarDescriptor` を持つオブジェクト（もしくはその子）を選択している必要があります（未選択・対象外の場合はメニューがグレーアウトされます）。
 

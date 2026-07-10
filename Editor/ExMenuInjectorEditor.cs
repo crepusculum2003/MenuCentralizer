@@ -15,9 +15,9 @@ namespace MenuCentralizer
         {
             EditorGUILayout.HelpBox(
                 "Menu Centralizer ExMenu Injector が有効です。\n" +
-                "ビルド時に Avatar Descriptor の ExpressionMenu を空にします。\n" +
+                "ビルド時に Avatar Descriptor の ExpressionMenu を空のものに変更します。\n" +
                 "これにより、非破壊的にメニューの差し替えが可能です。\n" +
-                "何らかの理由により、Menu Installer と Avatar Descriptor の" +
+                "何らかの理由により、Menu Installer と Avatar Descriptor の\n" +
                 "メニューを共存させたい場合は\n" +
                 "このコンポーネントを削除してください。",
                 MessageType.Info);
