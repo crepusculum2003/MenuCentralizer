@@ -142,7 +142,7 @@ namespace MenuCentralizer
         /// <summary>
         /// Install Targets の同期のみを実行する。
         /// </summary>
-        [MenuItem(SyncPath, false, CommandPriority)]
+        [MenuItem(SyncPath, false, CommandPriority + 10)]
         public static void SyncInstallTargets()
         {
             var descriptor = EditorUtils.TryGetAvatarDescriptor();
@@ -169,7 +169,7 @@ namespace MenuCentralizer
         /// <summary>
         /// ワンボタンで MA Menu Item SubMenu が設定された GameObject を作成する。
         /// </summary>
-        [MenuItem(QuickSubmenuPath, false, CommandPriority)]
+        [MenuItem(QuickSubmenuPath, false, CommandPriority + 20)]
         public static void QuickAddSubmenu()
         {
             const string defaultName = "Submenu";
